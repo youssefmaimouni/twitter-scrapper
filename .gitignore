@@ -1,0 +1,51 @@
+# Twitter Scraper .gitignore
+
+# Screenshots and scraped data
+screenshots/
+scraped_profiles/*.json
+test_results/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Logs
+*.log
+app.log
+
+# Cookies and authentication
+app/twitter_cookies.json
+
+# Playwright browser data
+playwright_profile/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Environment variables
+.env
+.env.local

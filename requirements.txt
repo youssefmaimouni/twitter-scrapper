@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+playwright
+pydantic
+python-multipart==0.0.6
+Pillow
+img2pdf
