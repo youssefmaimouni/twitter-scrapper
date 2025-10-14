@@ -3,6 +3,7 @@
 # Screenshots and scraped data
 screenshots/
 scraped_profiles/*.json
+scraped_profiles_test/*.json
 test_results/
 
 # Python cache and bytecode

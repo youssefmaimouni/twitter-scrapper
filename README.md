@@ -53,7 +53,7 @@ This script will automatically update all `sameSite` fields in `app/twitter_cook
 
 ### 3️⃣ Run the scraper
 
-1. Open `scraping_automatisation.py` and modify the `usernames` list with the Twitter accounts you want to scrape:
+1. Open `fetch_user.py` and modify the `usernames` list with the Twitter accounts you want to scrape:
 
 ```python
 usernames = ["elonmusk", "Cr7Fran4ever"]
@@ -62,7 +62,7 @@ usernames = ["elonmusk", "Cr7Fran4ever"]
 2. Run the scraper:
 
 ```bash
-python scraping_automatisation.py
+python fetch_user.py
 ```
 
 3. Output:
