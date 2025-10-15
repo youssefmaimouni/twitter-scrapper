@@ -1,9 +1,12 @@
 # Twitter Scraper .gitignore
-
+profile_images_links.json
+twitter_location_only.json
+twitter_location_only_completed.json
 # Screenshots and scraped data
 screenshots/
 scraped_profiles/*.json
 scraped_profiles_test/*.json
+scraped_profiles_test_new/*.json
 test_results/
 
 # Python cache and bytecode

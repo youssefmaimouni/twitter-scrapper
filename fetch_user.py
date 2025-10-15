@@ -4,6 +4,7 @@ import sys
 import os
 from datetime import datetime
 import json
+from fetch_images import get_photo_image_url
 
 # Fix Windows unicode output
 sys.stdout.reconfigure(encoding='utf-8')
@@ -31,6 +32,11 @@ async def fetch_user(username, max_tweets=20, max_followers=100, max_following=1
             max_following=max_following,
             stop_date=stop_date
         )
+
+        # Fetch profile image URL
+        print(f"Fetching profile image for @{username} ...")
+        image_url = await get_photo_image_url(username)
+        result["profile_image_url"] = image_url
 
         # Extract lists
         followers = extract_list(result, ['followers', 'followers_list', 'followers_data', 'followers_users'])
@@ -75,7 +81,7 @@ async def fetch_user(username, max_tweets=20, max_followers=100, max_following=1
         print_list("Following", following)
 
         # Save JSON
-        output_folder = os.path.join(os.path.dirname(__file__), "scraped_profiles_test")
+        output_folder = os.path.join(os.path.dirname(__file__), "scraped_profiles_test_new")
         os.makedirs(output_folder, exist_ok=True)
         filepath = os.path.join(output_folder, f"{username}.json")
         with open(filepath, "w", encoding="utf-8") as f:
@@ -91,7 +97,16 @@ async def fetch_user(username, max_tweets=20, max_followers=100, max_following=1
         return False
 
 async def main():
-    usernames = ["elonmusk", "barackobama", "cristiano"]
+    import json
+
+    with open("twitter_location_only.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    usernames = [entry["Twitter Username"] for entry in data]
+    for username in usernames:
+        print(username)
+
+    usernames = usernames[:3]  
     stop_date = datetime(2025, 1, 1).date()  # optional: stop at this date
     for u in usernames:
         await fetch_user(u, max_tweets=10, max_followers=50, max_following=50, show=5, stop_date=stop_date)
