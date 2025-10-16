@@ -81,7 +81,7 @@ async def fetch_user(username, max_tweets=20, max_followers=100, max_following=1
         print_list("Following", following)
 
         # Save JSON
-        output_folder = os.path.join(os.path.dirname(__file__), "scraped_profiles_test_new")
+        output_folder = os.path.join(os.path.dirname(__file__), "scraped_profiles")
         os.makedirs(output_folder, exist_ok=True)
         filepath = os.path.join(output_folder, f"{username}.json")
         with open(filepath, "w", encoding="utf-8") as f:
@@ -95,21 +95,43 @@ async def fetch_user(username, max_tweets=20, max_followers=100, max_following=1
         import traceback
         traceback.print_exc()
         return False
-
+    
+def is_scraped(username, output_folder):
+    path = os.path.join(output_folder, f"{username}.json")
+    if not os.path.exists(path):
+        return False
+    try:
+        if os.path.getsize(path) < 10:
+            return False
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        # consider as processed if there's useful content or a skipped marker
+        if isinstance(data, dict) and (data.get("skipped") or data.get("profile_image_url") or data.get("user_profile") or data.get("tweets")):
+            return True
+        return True  # fallback: file exists and non-empty => treated as processed
+    except Exception:
+        return False
+    
 async def main():
     import json
 
-    with open("twitter_location_only.json", "r", encoding="utf-8") as f:
+    with open("users_extended.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
     usernames = [entry["Twitter Username"] for entry in data]
     for username in usernames:
         print(username)
 
-    usernames = usernames[:3]  
+    #usernames = usernames[:3]  
     stop_date = datetime(2025, 1, 1).date()  # optional: stop at this date
+
+    output_folder = os.path.join(os.path.dirname(__file__), "scraped_profiles")
+    os.makedirs(output_folder, exist_ok=True)
     for u in usernames:
-        await fetch_user(u, max_tweets=10, max_followers=50, max_following=50, show=5, stop_date=stop_date)
+        if is_scraped(u, output_folder):
+            print(f"Already scraped or attempted {u}, skipping.")
+            continue
+        await fetch_user(u, max_tweets=10, max_followers=100, max_following=100, show=5, stop_date=stop_date)
 
 if __name__ == "__main__":
     asyncio.run(main())

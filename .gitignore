@@ -2,6 +2,8 @@
 profile_images_links.json
 twitter_location_only.json
 twitter_location_only_completed.json
+users.json
+users_extended.json
 # Screenshots and scraped data
 screenshots/
 scraped_profiles/*.json

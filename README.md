@@ -4,16 +4,29 @@ This project allows you to scrape Twitter user profiles, tweets, followers, and 
 
 ---
 
-## Setup
+## Initial Setup
 
-1. **Install dependencies:**
+1. **Create and activate virtual environment:**
+
+```bash
+# Create virtual environment
+python -m venv .venv
+
+# Activate virtual environment (Windows)
+.venv\Scripts\activate
+
+# Activate virtual environment (Linux/Mac)
+source .venv/bin/activate
+```
+
+2. **Install dependencies:**
 
 ```bash
 pip install -r requirements.txt
 playwright install
 ```
 
-2. **(Optional) Configure Playwright Browsers:**
+3. **(Optional) Configure Playwright Browsers:**
 
 If you encounter browser errors, run:
 
@@ -51,22 +64,30 @@ This script will automatically update all `sameSite` fields in `app/twitter_cook
 
 ---
 
-### 3️⃣ Run the scraper
+### 3️⃣ Run the scrapers
 
-1. Open `fetch_user.py` and modify the `usernames` list with the Twitter accounts you want to scrape:
+1. **Set up Serper API Key:**
+   - Go to [https://serper.dev/](https://serper.dev/)
+   - Sign up and get your API key
+   - Create or edit the `.env` file in the project root
+   - Add your API key:
+   ```
+   serper_api_key=your_api_key_here
+   ```
 
-```python
-usernames = ["elonmusk", "Cr7Fran4ever"]
+2. First, collect Twitter usernames by running:
+```bash
+python get_users.py
 ```
+This will create a `users_extended.json` file containing Twitter profiles to scrape.
+his will create a `users_extended.json` file containing Twitter profiles to scrape.
 
-2. Run the scraper:
-
+3. Then, scrape the profiles by running:
 ```bash
 python fetch_user.py
 ```
 
-3. Output:
-
+4. Output:
 * Scraped profile data will be saved as JSON files in the `scraped_profiles/` folder.
 * The terminal will display a summary of each profile, followers, and following.
 
