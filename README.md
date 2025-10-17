@@ -45,7 +45,7 @@ playwright install chromium
 3. Save the exported JSON file as:
 
 ```
-app/twitter_cookies.json
+twitter_cookies.json
 ```
 
 > Ensure the JSON contains the required fields: `name`, `value`, `domain`, `path`, `expires`, and optionally `sameSite`.
@@ -60,7 +60,7 @@ Some cookies may cause errors (like `sameSite`) when loaded by Playwright. To fi
 python fix_cookies.py
 ```
 
-This script will automatically update all `sameSite` fields in `app/twitter_cookies.json` to compatible values (`Strict`, `Lax`, or `None`).
+This script will automatically update all `sameSite` fields in `twitter_cookies.json` to compatible values (`Strict`, `Lax`, or `None`).
 
 ---
 

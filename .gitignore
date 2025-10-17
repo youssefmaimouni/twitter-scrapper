@@ -10,7 +10,8 @@ scraped_profiles/*.json
 scraped_profiles_test/*.json
 scraped_profiles_test_new/*.json
 test_results/
-
+VM1_Data/*.json
+VM2_Data/*.json
 # Python cache and bytecode
 __pycache__/
 *.py[cod]
@@ -28,6 +29,7 @@ app.log
 
 # Cookies and authentication
 app/twitter_cookies.json
+twitter_cookies.json
 
 # Playwright browser data
 playwright_profile/

@@ -21,31 +21,56 @@ OUTPUT_FILE = "users_extended.json"  # existing file will be loaded and preserve
 
 # --- user params ---
 queries = [
-    # 🌍 General Data & AI queries
-    "data scientist maroc site:https://x.com/",
-    "data engineer maroc site:https://x.com/",
-    "machine learning maroc site:https://x.com/",
-    "artificial intelligence maroc site:https://x.com/",
-    "deep learning maroc site:https://x.com/",
-    "data analyst maroc site:https://x.com/",
-    "big data maroc site:https://x.com/",
-    "business intelligence maroc site:https://x.com/",
-    "analyste de données maroc site:https://x.com/",
-    "scientifique des données maroc site:https://x.com/",
+    # 👨‍💻 Développeurs & ingénieurs à Casablanca
+    "engineer casablanca site:https://x.com/",
+    "web developer casablanca site:https://x.com/",
+    "frontend engineer casablanca site:https://x.com/",
+    "backend engineer casablanca site:https://x.com/",
+    "software architect casablanca site:https://x.com/",
+    "mobile app developer casablanca site:https://x.com/",
+    "flutter engineer casablanca site:https://x.com/",
+    "react native developer casablanca site:https://x.com/",
+    "typescript developer casablanca site:https://x.com/",
+    "nodejs developer casablanca site:https://x.com/",
     
-    # 💻 Broader tech & AI community
-    "ai engineer maroc site:https://x.com/",
-    "cloud engineer maroc site:https://x.com/",
-    "data science student maroc site:https://x.com/",
-    "phd data science maroc site:https://x.com/",
-    "professeur data maroc site:https://x.com/",
-    "developer ai maroc site:https://x.com/",
-    "researcher ai maroc site:https://x.com/",
-    "etudiant intelligence artificielle maroc site:https://x.com/",
-    "formateur data maroc site:https://x.com/"
+    # 🧠 Intelligence Artificielle, Data & Innovation
+    "ai enthusiast casablanca site:https://x.com/",
+    "data enthusiast casablanca site:https://x.com/",
+    "ml enthusiast casablanca site:https://x.com/",
+    "data visualization casablanca site:https://x.com/",
+    "data storytelling casablanca site:https://x.com/",
+    "ai student casablanca site:https://x.com/",
+    "data science club casablanca site:https://x.com/",
+    "deep learning casablanca site:https://x.com/",
+    "nlp engineer casablanca site:https://x.com/",
+    "computer vision casablanca site:https://x.com/",
+    
+    # 💼 Freelancers & créateurs
+    "freelance developer casablanca site:https://x.com/",
+    "freelancer casablanca site:https://x.com/",
+    "web freelancer casablanca site:https://x.com/",
+    "designer freelance casablanca site:https://x.com/",
+    "content creator casablanca site:https://x.com/",
+    "influencer casablanca site:https://x.com/",
+    "community manager casablanca site:https://x.com/",
+    "social media manager casablanca site:https://x.com/",
+    "copywriter casablanca site:https://x.com/",
+    "branding expert casablanca site:https://x.com/",
+    
+    # 🎓 Étudiants & jeunes talents
+    "etudiant en informatique casablanca site:https://x.com/",
+    "ingenieur en formation casablanca site:https://x.com/",
+    "stagiaire informatique casablanca site:https://x.com/",
+    "junior developer casablanca site:https://x.com/",
+    "recent graduate casablanca site:https://x.com/",
+    "bachelor computer science casablanca site:https://x.com/",
+    "master data science casablanca site:https://x.com/",
+    "software trainee casablanca site:https://x.com/",
+    "intern ai casablanca site:https://x.com/",
+    "it student casablanca site:https://x.com/"
 ]
 
-max_pages_per_query = 3   # how many pages to try per query (set to 1,2,3,...)
+max_pages_per_query = 10   # how many pages to try per query (set to 1,2,3,...)
 delay_between_requests = 1.0  # seconds (increase if rate limited)
 location_context = "Casablanca, Casablanca-Settat, Morocco"  # optional location param sent to API
 gl = "ma"
