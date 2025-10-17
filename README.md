@@ -82,6 +82,23 @@ python get_users.py
 This will create a `users_extended.json` file containing Twitter profiles to scrape.
 his will create a `users_extended.json` file containing Twitter profiles to scrape.
 
+> 💡 **Tip:**
+> You can **customize the search queries** inside the script to target different **roles, locations, and languages (English & French)** for broader coverage.
+> For example:
+>
+> ```python
+> queries = [
+>     "data scientist maroc site:https://x.com/",
+>     "ingénieur data casablanca site:https://x.com/",
+>     "machine learning engineer maroc site:https://x.com/",
+>     "analyste de données rabat site:https://x.com/",
+>     "ai researcher maroc site:https://x.com/",
+>     "data student fes site:https://x.com/"
+> ]
+> ```
+>
+> Adjust these queries to focus on specific cities, job titles, or even universities to get a richer set of profiles.
+
 3. Then, scrape the profiles by running:
 ```bash
 python fetch_user.py
